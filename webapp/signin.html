@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    
+        <title>Sign In</title>
+	    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/default.css"/>
+        <style type="text/css">
+        	.margin-top{
+        		margin-top: 150px;
+        	}
+        </style>
+    </head>
+    
+    <body>
+    	<div class="container-fluid ">
+    		<div class="row ">
+    			<div class="col-md-4 block hidden-sm hidden-xs">
+    				<img class="img-responsive" src="images/2000.jpg"/>
+    			</div>
+    			<div class="col-md-8 margin-top">
+    				<div class="col-sm-8 col-sm-offset-2 col-md-8 col-xs-10 col-xs-offset-1">
+    					<div class="page-header">
+						  	<h1>Welcome to BLOG</h1>
+						</div>
+						<p class="lead">Everyday, enjoy your communication</p>
+	    				<form class="form-horizontal" action="signinAction" method="post">
+							<div class="form-group">
+								<input type="email" class="form-control input-lg" name="email" placeholder="you@example.com">
+							</div>
+						  	<div class="form-group">
+							    <input type="password" class="form-control input-lg" name="password" placeholder="your password">
+						  	</div>
+							<div class="form-group">
+							    <div class="checkbox">
+								    <label for="Reme"><input type="checkbox" id="Reme"> Remember me</input></label>
+							    </div>
+						  	</div>
+						  	<div class="form-group">
+						  		<div class="row">
+						  			<div class="col-md-5">
+										<input type="submit" class="btn btn-lg btn-block btn-info" value="Sign in"/>
+						  			</div>
+						  			<div class="col-md-3">
+										<input type="button" class="btn btn-lg btn-block btn-warning" value="Ignore"/>
+						  			</div>
+						  			<div class="col-md-4">
+										<input type="button" class="btn btn-lg btn-block btn-danger" value="Forgot Password"/>
+						  			</div>
+						  		</div>
+						  	</div>
+						  	<div class="form-group">
+						  		<a class="btn btn-info btn-lg btn-block" href="signup.html">Sign up for BLOG</a>
+						  	</div>						  			
+						</form>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    
+    	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	    <script src="bower_components/jquery/dist/jquery.js"></script>
+	    <!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    </body>
+<html>
+	
+
+    			
+    				

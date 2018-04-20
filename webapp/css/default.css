@@ -1,0 +1,9 @@
+	.purple{
+		background: linear-gradient(to bottom right, #563d7c,#6e5398);
+	}
+	.blue{
+		background: linear-gradient(to bottom right, #0083e3,#00b2fe);
+	}
+	.lightsteelblue{
+		background-color: lightsteelblue;
+	}

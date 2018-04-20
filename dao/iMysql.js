@@ -1,0 +1,77 @@
+'use strict';
+//1.引入mysql的模块
+const mysql = require('mysql');
+
+
+const iDB = {
+	HOST : '127.0.0.1',
+	USER : 'root',
+	PASSWORD : '123',
+	DATABASE_NAME : 'kali',
+};
+
+const TABLE = {
+	NAME : 'BLOG',
+	ID : 'UID',
+	EMAIL : 'EMAIL',
+	PASSWORD : 'PASSWORD',
+};
+
+//2.获取和数据库的链接
+const connection = mysql.createConnection({
+	host : iDB.HOST,
+	user : iDB.USER,
+	password : iDB.PASSWORD,
+	database : iDB.DATABASE_NAME,
+});
+//3.启动链接
+connection.connect(function(err){
+	if (err) {
+	    console.error('连接错误: ' + err.stack);
+	    return;
+  	}
+  	console.log('连接ID ' + connection.threadId);
+});
+
+
+//4.执行增删查改
+//single & multiple select
+let select = function(connect,values){
+	let selectSql = 'SELECT * FROM ' + TABLE.NAME +' WHERE ?';
+	connect.query(sql,values,function(err,results){
+		if(err){
+    		console.error('查询错误: ' + err.stack);
+		    return;
+	    }
+		console.log(results);
+	});
+};
+//single insert
+let insert = function(connect,values){
+	let insertSql = 'INSERT INTO ' + TABLE.NAME +' ('+TABLE.EMAIL+','+TABLE.PASSWORD+')'+'  VALUES (?,?) ';
+	console.log(insertSql);
+	connect.query(insertSql,values,function(err,results){
+		if(err){
+    		console.error('插入错误: ' + err.stack);
+		    return;
+	    }
+		console.log(results);
+	});
+};
+
+
+let test = function(){
+//	let Json = {id_book : 1,};
+//	select(connection,Json);
+
+	let Json = ['1@66', '66'];
+	insert(connection,Json);
+	
+}();
+
+connection.end(function(err) {
+  	if(err){
+		console.error('关闭错误: ' + err.stack);
+	    return;
+    }
+});
