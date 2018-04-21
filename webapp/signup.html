@@ -27,7 +27,7 @@
 						  	<h1>Welcome to BLOG</h1>
 						</div>
 						<p class="lead">Everyday, enjoy your communication</p>
-	    				<form class="form-horizontal" action="signupAction" method="post">
+	    				<form class="form-horizontal" id="signup-form" action="signupAction" method="post" onsubmit="return false">
 							<div class="form-group">
 								<input type="email" class="form-control input-lg" name="email" id="inputEmail" placeholder="you@example.com">
 							</div>
@@ -43,7 +43,7 @@
 							    </div>
 						  	</div>
 						  	<div class="form-group">
-								<input type="submit" class="btn btn-lg btn-block btn-info" value="Sign up for BLOG"/>
+								<input type="button" id="signup" class="btn btn-lg btn-block btn-info" value="Sign up for BLOG"/>
 						  	</div>
 						</form>
     				</div>
@@ -56,5 +56,7 @@
 	    <script src="bower_components/jquery/dist/jquery.js"></script>
 	    <!-- Include all compiled plugins (below), or include individual files as needed -->
 	    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	    
+	    <script src="js/signup.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

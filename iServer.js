@@ -33,7 +33,9 @@ let httpObj = http.createServer(function(req,res){
     }else if(url === "/signupAction" ){
     	if(req.method == 'POST'){
     		let form = new formidable.IncomingForm();
-    		iuser.userSignin(form,req);
+    		form.parse(req,function (err,fields,files){
+    			iuser.userSignup(fields,res);
+    		});
     	}
     }else{
     	itools.loadFile(pathname,res);

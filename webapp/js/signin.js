@@ -1,5 +1,5 @@
 $(function(){
-	$('#submit').on('click',function(){
+	$('#signin').on('click',function(){
 		//获取表单数据
 //      var datasArray = $('#signin-form').serializeArray();
         //datasArray instanceof Array true
@@ -24,6 +24,7 @@ $(function(){
         	success:function(response){
         		var json = strToJson(response);
         		if(json.desc === '1'){
+        			$(location).prop('href', '../../index.html')
         			console.log(json.desc === '1');
         		}
         	}
