@@ -36,15 +36,17 @@ connection.connect(function(err){
 
 //4.执行增删查改
 //single & multiple select
-function select(values){
+function select(values,callback){
 	let selectSql = 'SELECT * FROM ' + TABLE.NAME +' WHERE ?';
 	console.log(selectSql);
-	connection.query(sql,values,function(err,results){
+	console.log(values);
+	
+	connection.query(selectSql,values,function(err,results){
 		if(err){
     		console.error('查询错误: ' + err.stack);
 		    return;
 	    }
-		console.log(results);
+		callback(results);
 	});
 };
 //single insert
@@ -62,20 +64,20 @@ function insert(values){
 
 
 let test = function(){
-//	let Json = {id_book : 1,};
+//	let Json = {email:'1@66'};
 //	select(Json);
 
-	let Json = ['1@66', '66'];
-	insert(Json);
+//	let Json = ['1@66', '66'];
+//	insert(Json);
 	
 }();
 
-connection.end(function(err) {
-  	if(err){
-		console.error('关闭错误: ' + err.stack);
-	    return;
-    }
-});
+//connection.end(function(err) {
+//	if(err){
+//		console.error('关闭错误: ' + err.stack);
+//	    return;
+//  }
+//});
 
 module.exports = {
 	insert,select,

@@ -27,7 +27,7 @@
 						  	<h1>Welcome to BLOG</h1>
 						</div>
 						<p class="lead">Everyday, enjoy your communication</p>
-	    				<form class="form-horizontal" action="signinAction" method="post">
+	    				<form class="form-horizontal" id="signin-form" action="signinAction" method="post" onsubmit="return false">
 							<div class="form-group">
 								<input type="email" class="form-control input-lg" name="email" placeholder="you@example.com">
 							</div>
@@ -42,10 +42,10 @@
 						  	<div class="form-group">
 						  		<div class="row">
 						  			<div class="col-md-5">
-										<input type="submit" class="btn btn-lg btn-block btn-info" value="Sign in"/>
+										<input type="button" id="submit" class="btn btn-lg btn-block btn-info" value="Sign in"/>
 						  			</div>
 						  			<div class="col-md-3">
-										<input type="button" class="btn btn-lg btn-block btn-warning" value="Ignore"/>
+										<input type="button" class="btn btn-lg btn-block btn-warning" value="Anonymous"/>
 						  			</div>
 						  			<div class="col-md-4">
 										<input type="button" class="btn btn-lg btn-block btn-danger" value="Forgot Password"/>
@@ -60,11 +60,14 @@
     			</div>
     		</div>
     	</div>
-    
+    	
     	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	    <script src="bower_components/jquery/dist/jquery.js"></script>
 	    <!-- Include all compiled plugins (below), or include individual files as needed -->
 	    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	    
+	    <script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="js/signin.js" type="text/javascript" charset="utf-8"></script>
     </body>
 <html>
 	

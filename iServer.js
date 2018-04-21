@@ -6,10 +6,13 @@ const http = require('http');
 const path = require('path');
 //引入模块querystring
 const querystring = require('querystring');
+const formidable = require('formidable');
+
 
 //引入自己的模块
-const iMysql = require('./dao/iMysql');
+
 const itools = require('./common/tools')
+const iuser = require('./control/userAccountControl')
 
 //2、创建服务器    函数的参数req是发送给服务器的请求，res是服务器的相应
 let httpObj = http.createServer(function(req,res){
@@ -22,19 +25,15 @@ let httpObj = http.createServer(function(req,res){
     	pathname = path.join(__dirname,'/webapp/images/56.png');
     }else if(url === "/signinAction" ){
     	if(req.method == 'POST'){
-    		req.addListener('data',function(data){
-    			let json = querystring.parse(data.toString());
-//  			let user = json.user;
-    			console.log(json);
-    		});
-    	}
+    		let form = new formidable.IncomingForm();
+    		form.parse(req,function (err,fields,files){
+    			iuser.userSignin(fields,res);
+		    });
+        }
     }else if(url === "/signupAction" ){
     	if(req.method == 'POST'){
-    		req.addListener('data',function(data){
-    			let json = querystring.parse(data.toString());
-//  			let user = json.user;
-    			console.log(json);
-    		});
+    		let form = new formidable.IncomingForm();
+    		iuser.userSignin(form,req);
     	}
     }else{
     	itools.loadFile(pathname,res);
