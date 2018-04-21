@@ -19,6 +19,7 @@
     "jquery": "^1.11.3",
     "bootstrap": "^3.3.7",
     "html5shiv": "^3.7.3",
-    "respond": "^1.4.2"
+    "respond": "^1.4.2",
+    "summernote": "^0.8.10"
   }
 }
