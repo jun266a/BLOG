@@ -50,7 +50,7 @@ function select(values,callback){
 	});
 };
 //single insert
-function insert(values){
+function insert(values,callback){
 	let insertSql = 'INSERT INTO ' + TABLE.NAME +' ('+TABLE.EMAIL+','+TABLE.PASSWORD+')'+'  VALUES (?,?) ';
 	console.log(insertSql);
 	connection.query(insertSql,values,function(err,results){
@@ -58,7 +58,7 @@ function insert(values){
     		console.error('插入错误: ' + err.stack);
 		    return;
 	    }
-		console.log(results);
+		callback(results);
 	});
 };
 

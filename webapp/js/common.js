@@ -14,3 +14,15 @@ function paramToJson(str){
     var stringObj= "{" +newstr + "\"}";
     return stringObj;
 }
+function AJAX(data,url,callback){
+	$.ajax({
+    	data:data,
+    	type:"POST",
+    	url:url,
+    	async:false,
+    	success:function(response){
+    		var json = strToJson(response);
+    		callback(json);
+    	}
+    });
+}

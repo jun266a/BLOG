@@ -29,7 +29,7 @@ function userSignin(fields,res){
 	});
 }
 
-function userSignup(fields,req){
+function userSignup(fields,res){
 	let data = {};
 	data.email = fields.email;
 	
@@ -37,13 +37,19 @@ function userSignup(fields,req){
 	let signupData = [];
 	signupData[signupData.length] = fields.email;
 	signupData[signupData.length] = fields.password;
-	console.log(signupData);
+	console.log('注册数据'+signupData);
 	//做校验操作
 	iMysql.select(data,function(results){
 		if(results.length == 0){
 			//用户名不存在    
 			data.password = fields.password;
-			iMysql.insert(signupData);
+			iMysql.insert(signupData,function(results){
+				if(results.length != 0){
+					//注册成功
+					res.writeHead(200);
+					res.end("{result:'success',desc:'1'}");
+				}
+			});
 		}else{
 			
 		}
