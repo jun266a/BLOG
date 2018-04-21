@@ -1,12 +1,12 @@
 'use strict';
 
-const iMysql = require('../dao/iMysql');
+const userDao = require('../dao/userDao');
 
 function userSignin(fields,res){
 	//获取到了请求的参数
-	let data = {};
-	data.email = fields.email;
-	iMysql.select(data,function(results){
+	let dataJson = {};
+	dataJson.email = fields.email;
+	userDao.select(dataJson,function(results){
 		//做校验操作
 		console.log(results[0].PASSWORD);
 		if(results.length == 0){
@@ -30,20 +30,32 @@ function userSignin(fields,res){
 }
 
 function userSignup(fields,res){
-	let data = {};
-	data.email = fields.email;
+//	预期的数据格式
+//	Array
+//	[
+//		emailVal,
+//		pwdVal,
+//		{	
+//			emailKey:emailVal,
+//		}
+//	]
+//获取到了请求的参数
+//参数处理
+	let dataJson = {};
+	dataJson.email = fields.email;
+	let data = [];
 	
-	//获取到了请求的参数
-	let signupData = [];
-	signupData[signupData.length] = fields.email;
-	signupData[signupData.length] = fields.password;
-	console.log('注册数据'+signupData);
+	data.push(fields.email);
+	data.push(fields.password);
+	data.push(dataJson);
+	console.log('注册数据'+data);
+	
 	//做校验操作
-	iMysql.select(data,function(results){
+	userDao.select(data[2],function(results){
 		if(results.length == 0){
 			//用户名不存在    
 			data.password = fields.password;
-			iMysql.insert(signupData,function(results){
+			userDao.insert(data.splice(0,2),function(results){
 				if(results.length != 0){
 					//注册成功
 					res.writeHead(200);
