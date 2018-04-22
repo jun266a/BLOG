@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	    <title>Bloglist</title>
+	
+	    <!-- Bootstrap -->
+	    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/default.css"/>
+	
+	    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	    <!--[if lt IE 9]>
+	      <script src="bower_components/html5shiv/dist/html5shiv.min.js"></script>
+	      <script src="bower_components/respond/dest/respond.min.js"></script>
+	    <![endif]-->
+	</head>
+	<body>
+	    <nav class="navbar navbar-default navbar-fixed-top" >
+			<div class="container">
+				<!--汉堡菜单-->
+	            <div class="navbar-header ">
+	                <button type="button" class="navbar-toggle collapsed " 
+	                	data-toggle="collapse" 
+	                	data-target="#navbar-collapse-1" 
+	                	aria-expanded="false">
+	                    <span class="sr-only">Toggle navigation</span><!--screen reader only -->
+	                    <span class="icon-bar"></span>      
+	                    <span class="icon-bar"></span>      
+	                    <span class="icon-bar"></span>     
+	                    <!--汉堡条纹*3-->
+	                </button>
+			      	<a class="navbar-brand" href="#">Subscribe</a>
+	            </div>
+	            
+	            <!-- 导航-->
+				<div class="collapse navbar-collapse" id="navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-left">
+						<li class="text-center"><a href="JavaScript:void(0)">旅游</a></li>
+						<li class="text-center"><a href="JavaScript:void(0)">健康</a></li>
+						<li class="text-center"><a href="JavaScript:void(0)">科学</a></li>
+						<li class="text-center"><a href="JavaScript:void(0)">文化</a></li>
+						<li class="text-center"><a href="JavaScript:void(0)">技术</a></li>
+						<li class="text-center"><a href="JavaScript:void(0)">经济</a></li>
+						<li class="text-center"><a href="JavaScript:void(0)">运动</a></li>	
+					</ul>
+					<form class="navbar-form navbar-right visible-lg">
+						<div class="form-group has-feedback">
+							<input type="text" class="form-control" placeholder="站内搜索"/>
+							<span class="glyphicon glyphicon-search form-control-feedback 	" aria-hidden="true"></span>
+						</div>
+						<input type="submit" class="btn btn-info" value="搜索"/>
+						<a  class="btn btn-info" href="signin.html">登录</a>
+					</form>
+				</div>
+			</div>
+		</nav>
+		
+		<div class="container-fluid">
+			<div class="container margin-top">
+				<div class="col-md-3 aside well">
+					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  						<div class="panel panel-default">
+						    <div class="panel-heading" role="tab" id="headingOne">
+						      	<h4 class="panel-title">
+							        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							          	博客管理
+							        </a>
+						      	</h4>
+						    </div>
+						    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+						      	<div class="list-group">
+								  	<a href="#" class="list-group-item">文章管理</a>
+								  	<a href="#" class="list-group-item">写博客</a>
+								  	<a href="#" class="list-group-item">草稿箱</a>
+								  	<a href="#" class="list-group-item">回收站</a>
+								</div>
+						    </div>
+  						</div>
+					  	<div class="panel panel-default">
+						    <div class="panel-heading" role="tab" id="headingTwo">
+						      	<h4 class="panel-title">
+						        	<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+						          		Collapsible Group Item #2
+						        	</a>
+						     	 </h4>
+						    </div>
+						    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+						      	<div class="list-group">
+						  			<a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+								  	<a href="#" class="list-group-item">Morbi leo risus</a>
+								  	<a href="#" class="list-group-item">Porta ac consectetur ac</a>
+								  	<a href="#" class="list-group-item">Vestibulum at eros</a>
+								</div>
+						    </div>
+					  	</div>
+					  	<div class="panel panel-default">
+						    <div class="panel-heading" role="tab" id="headingThree">
+						      	<h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+							          	博客设置
+							        </a>
+						      	</h4>
+						    </div>
+						    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+						      	<div class="list-group">
+								  	<a href="#" class="list-group-item">个人中心</a>
+								  	<a href="#" class="list-group-item">账号安全</a>
+								</div>
+						    </div>
+					  	</div>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div class="row section">
+						<div class="page-header ">
+							<blockquote>文章管理</blockquote>
+						</div>
+						<ul class="nav nav-tabs">
+						  	<li role="presentation" class="active"><a href="#">全部 <span class="badge">42</span></a></li>
+						  	<li role="presentation"><a href="#">旅游</a></li>
+						  	<li role="presentation"><a href="#">文化</a></li>
+						  	<li role="presentation"><a href="#">运动</a></li>
+						</ul>
+						<div class="row article">
+						  	<div class="col-sm-6 col-md-4">
+							    <div class="thumbnail">
+							      	<div class="caption">
+								        <h3>Title</h3>
+								        <p>Nov 11</p>
+								        <p class="desc">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+								        <p>
+								        	<a href="#" class="btn btn-primary" role="button">查看</a> 
+								        	<a href="#" class="btn btn-danger" role="button">删除</a> 
+								        </p>
+							      	</div>
+							    </div>
+						  	</div>
+						  	<div class="col-sm-6 col-md-4">
+							    <div class="thumbnail">
+							      	<div class="caption">
+								        <h3>Featured post</h3>
+								        <p>Nov 11</p>
+								        <p class="desc">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+								        <p>
+								        	<a href="#" class="btn btn-primary" role="button">查看</a> 
+								        	<a href="#" class="btn btn-danger" role="button">删除</a> 
+								        </p>
+							      	</div>
+							    </div>
+						  	</div>
+						</div>
+						<div class="row footer">
+							<nav aria-label="Page navigation">
+							  	<ul class="pager ">
+								    <li>
+								      	<a href="#" aria-label="Previous">
+								        	<span aria-hidden="true">&laquo;</span>
+								      	</a>
+								    </li>
+								    <li><a href="#">1</a></li>
+								    <li><a href="#">2</a></li>
+								    <li><a href="#">3</a></li>
+								    <li><a href="#">4</a></li>
+								    <li><a href="#">5</a></li>
+								    <li>
+								      	<a href="#" aria-label="Next">
+								        	<span aria-hidden="true">&raquo;</span>
+								      	</a>
+								    </li>
+							  	</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+	    <!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	</body>
+</html>
