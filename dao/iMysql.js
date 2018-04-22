@@ -10,7 +10,7 @@ let db = {
 		DATABASE_NAME : 'kali',
 	},
 	TABLE : {
-		NAME : 'BLOG',
+		NAME : 'BLOG_USER',
 		ID : 'UID',
 		EMAIL : 'EMAIL',
 		PASSWORD : 'PASSWORD',

@@ -31,31 +31,19 @@ function userSignin(fields,res){
 
 function userSignup(fields,res){
 //	预期的数据格式
-//	Array
-//	[
-//		emailVal,
-//		pwdVal,
-//		{	
+//		fields{	
 //			emailKey:emailVal,
+//			pwdKey:pwdVal
 //		}
-//	]
 //获取到了请求的参数
-//参数处理
-	let dataJson = {};
-	dataJson.email = fields.email;
-	let data = [];
-	
-	data.push(fields.email);
-	data.push(fields.password);
-	data.push(dataJson);
-	console.log('注册数据'+data);
+	let selectfd = {};
+	selectfd.email = fields.email;
 	
 	//做校验操作
-	userDao.select(data[2],function(results){
+	userDao.select(selectfd,function(results){
 		if(results.length == 0){
 			//用户名不存在    
-			data.password = fields.password;
-			userDao.insert(data.splice(0,2),function(results){
+			userDao.insert(fields,function(results){
 				if(results.length != 0){
 					//注册成功
 					res.writeHead(200);

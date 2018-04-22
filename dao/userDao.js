@@ -13,7 +13,7 @@ function select(values,callback){
 };
 //single insert
 function insert(values,callback){
-	let insertSql = 'INSERT INTO ' + db.TABLE.NAME +' ('+db.TABLE.EMAIL+','+db.TABLE.PASSWORD+')'+'  VALUES (?,?) ';
+	let insertSql = 'INSERT INTO ' + db.TABLE.NAME +' SET ? ';
 	console.log(insertSql);
 	db.query(insertSql,values,function(results){
 		callback(results);
