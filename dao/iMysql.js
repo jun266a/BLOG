@@ -7,13 +7,15 @@ let db = {
 		HOST : '127.0.0.1',
 		USER : 'root',
 		PASSWORD : '123',
-		DATABASE_NAME : 'kali',
+		DATABASE_NAME : 'KALI',
 	},
-	TABLE : {
-		NAME : 'BLOG_USER',
-		ID : 'UID',
-		EMAIL : 'EMAIL',
-		PASSWORD : 'PASSWORD',
+	TABLES:{
+		USER : {
+			NAME : 'BLOG_USER'
+		},
+		ARTICLE :{
+			NAME : 'BLOG_ARTICLE'
+		}
 	},
 	query : function sqlback(querySql,values,callback){
 		//2.获取和数据库的链接
