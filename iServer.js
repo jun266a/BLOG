@@ -12,7 +12,7 @@ const app = express();
 //引入自己的模块
 
 const itools = require('./common/tools');
-const iuser = require('./control/userAccountControl');
+const iUser = require('./control/userControl');
 const iBlog = require('./control/blogControl');
 
 //post参数注入
@@ -30,21 +30,21 @@ app.post('/signinAction',function(req,res){
 	if(!req.body){
 		return res.sendStatus(400);
 	}else{
-    	iuser.userSignin(req.body,res);
+    	iUser.checkUser(req.body,res);
 	}
 });
 app.post('/signupAction',function(req,res){
 	if(!req.body){
 		return res.sendStatus(400);
 	}else{
-    	iuser.userSignup(req.body,res);
+    	iUser.registUser(req.body,res);
 	}
 });
 app.post('/publishAction',function(req,res){
 	if(!req.body){
 		return res.sendStatus(400);
 	}else{
-    	iBlog.blogInsert(req.body,res);
+    	iBlog.addNew(req.body,res);
 	}
 });
 //监听端口

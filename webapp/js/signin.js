@@ -1,8 +1,6 @@
 $(function(){
 	$('#signin').on('click',function(){
 		//获取表单数据
-//      var datasArray = $('#signin-form').serializeArray();
-        //datasArray instanceof Array true
         var Param = $('#signin-form').serialize();
         //param
         var Boolean = true;
@@ -15,8 +13,8 @@ $(function(){
 		if(Boolean){
 			AJAX(Param,"/signinAction",function(json){
 				if(json.desc === '1'){
-					$(location).prop('href', '../../index.html')
-					console.log(json.desc === '1');
+//					$.post('./index.html');
+	        		$(location).prop('href', '../../index.html')
 				}
 			});
 		}

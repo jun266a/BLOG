@@ -3,27 +3,35 @@
 const mysql = require('mysql');
 
 let db = {
-	iDB :  {
+	CONFIG :  {
 		HOST : '127.0.0.1',
 		USER : 'root',
 		PASSWORD : '123',
 		DATABASE_NAME : 'KALI',
 	},
-	TABLES:{
+	VIEWS : {
+		CATE : {
+			NAME : 'CATE'
+		}
+	},
+	TABLES : {
 		USER : {
 			NAME : 'BLOG_USER'
 		},
-		ARTICLE :{
+		ARTICLE : {
 			NAME : 'BLOG_ARTICLE'
+		},
+		CATEGORY : {
+			NAME : 'CATEGORY'
 		}
 	},
 	query : function sqlback(querySql,values,callback){
 		//2.获取和数据库的链接
 		const connection = mysql.createConnection({
-			host : this.iDB.HOST,
-			user : this.iDB.USER,
-			password : this.iDB.PASSWORD,
-			database : this.iDB.DATABASE_NAME,
+			host : this.CONFIG.HOST,
+			user : this.CONFIG.USER,
+			password : this.CONFIG.PASSWORD,
+			database : this.CONFIG.DATABASE_NAME,
 		});
 		//3.启动链接
 		connection.connect(function(err){
