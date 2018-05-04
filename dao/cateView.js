@@ -10,3 +10,4 @@ let cateView = {
 		});
 	}
 };
+module.exports = cateView;

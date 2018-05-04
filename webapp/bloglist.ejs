@@ -107,41 +107,49 @@
 								</div>
 								<ul class="nav nav-tabs " role="tablist">
 								  	<li role="presentation" class="active"><a href="#all" role="tab" data-toggle="tab">全部 <span class="badge">42</span></a></li>
-								  	<li role="presentation"><a href="#traval" role="tab" data-toggle="tab">旅游</a></li>
-								  	<li role="presentation"><a href="#" role="tab" data-toggle="tab">文化</a></li>
-								  	<li role="presentation"><a href="#" role="tab" data-toggle="tab">运动</a></li>
+								  	<%for(var i=0;i<categorys.length;i++){%>
+								  		<li role="presentation"><a href="#<%=categorys[i].category%>" role="tab" data-toggle="tab" data-cate="<%=categorys[i].id%>"><%=categorys[i].name%></a></li>
+								  	<%}%>
 								</ul>
 								<div class="tab-content">
 								    <div role="tabpanel" class="tab-pane active" id="all">
-								    	<div class="col-sm-6 col-md-4">
-										    <div class="thumbnail">
-										      	<div class="caption">
-											        <h3>Title</h3>
-											        <p>Nov 11</p>
-											        <p class="desc">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-											        <p>
-											        	<a href="#" class="btn btn-primary" role="button">查看</a> 
-											        	<a href="#" class="btn btn-danger" role="button">删除</a> 
-											        </p>
-										      	</div>
-										    </div>
-									  	</div>
+								  		<%for(var i=0;i<articles.length;i++){%>
+									    	<div class="col-sm-6 col-md-4">
+											    <div class="thumbnail">
+											      	<div class="caption">
+												        <h3><%=articles[i].title%></h3>
+												        <p><%=articles[i].date%></p>
+												        <p class="desc"><%=articles[i].content%></p>
+												        <p>
+												        	<a href="#" class="btn btn-primary" role="button">查看</a> 
+												        	<a href="#" class="btn btn-danger" role="button">删除</a> 
+												        </p>
+											      	</div>
+											    </div>
+										  	</div>
+									  	<%}%>
 								    </div>
-								    <div role="tabpanel" class="tab-pane" id="traval">
-								    	<div class="col-sm-6 col-md-4">
-										    <div class="thumbnail">
-										      	<div class="caption">
-											        <h3>Featured post</h3>
-											        <p>Nov 11</p>
-											        <p class="desc">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-											        <p>
-											        	<a href="#" class="btn btn-primary" role="button">查看</a> 
-											        	<a href="#" class="btn btn-danger" role="button">删除</a> 
-											        </p>
-										      	</div>
-										    </div>
-									  	</div>
-								    </div>
+								    <%for(var i=0;i<categorys.length;i++){%>
+									    <div role="tabpanel" class="tab-pane" id="<%=categorys[i].category%>">
+									    	<%for(var j=0;j<articles.length;j++){%>
+									    		<%if(categorys[i].id == articles[j].cate_id){%>
+											    	<div class="col-sm-6 col-md-4">
+													    <div class="thumbnail">
+													      	<div class="caption">
+														        <h3><%=articles[j].title%></h3>
+														        <p><%=articles[j].date%></p>
+														        <p class="desc"><%=articles[j].content%></p>
+														        <p>
+														        	<a href="#" class="btn btn-primary" role="button">查看</a> 
+														        	<a href="#" class="btn btn-danger" role="button">删除</a> 
+														        </p>
+													      	</div>
+													    </div>
+											  		</div>
+											  	<%}%>
+											<%}%>
+								    	</div>
+								  	<%}%>
 								</div>
 							</div>
 							<div class="row footer">
@@ -166,6 +174,7 @@
 								</nav>
 							</div>
 						</div>
+						
 						<div role="tabpanel" class="tab-pane" id="edit">
 							
 						</div>

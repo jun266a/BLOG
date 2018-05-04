@@ -1,6 +1,7 @@
 'use strict';
 
 const blogDao = require('../dao/blogDao');
+const cateView = require('../dao/cateView');
 
 let iBlog = {
 	addNew : function(fields,res){
@@ -17,5 +18,16 @@ let iBlog = {
 		blogDao.delete(fields,function(results){
 			
 		});	
+	},
+	getIndex : function(fields,res,callback){
+		blogDao.select(fields,function(results){
+			callback(results);
+		});
+	},
+	getCateByUID : function(fields,res,callback){
+		cateView.select(fields,function(results){
+			callback(results);
+		});
 	}
 };
+module.exports = iBlog;	
