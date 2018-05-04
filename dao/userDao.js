@@ -6,7 +6,6 @@ let userDao = {
 //执行增删查改
 	insert : function (values,callback){
 		let insertSql = 'INSERT INTO ' + db.TABLES.USER.NAME +' SET ? ';
-		console.log(insertSql);
 		db.query(insertSql,values,function(results){
 			callback(results);
 		});
@@ -30,7 +29,6 @@ let userDao = {
 	replace : function (values,callback){
 		//REPLACE将考虑每一个唯一索引，并对每一 个索引对应的重复记录都删除，然后插入这条新记录
 		let replaceSql = 'REPLACE INTO ' + db.TABLES.USER.NAME +' SET ? ';
-		console.log(replaceSql);
 		db.query(replaceSql,values,function(results){
 			callback(results);
 		});
@@ -38,7 +36,6 @@ let userDao = {
 	update : function (values,callback){
 	//UPDATE语句通过WHERE指定一个条件，否则，UPDATE将更新表中的所有记录的值。
 		let updateSql = 'UPDATE INTO ' + db.TABLES.USER.NAME +' SET ? ';
-		console.log(updateSql);
 		db.query(updateSql,values,function(results){
 			callback(results);
 		});

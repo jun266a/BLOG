@@ -4,10 +4,8 @@ const userDao = require('../dao/userDao');
 
 let iUser = {
 	checkUser : function (fields,res){
-		let selectfd = {};
-		selectfd.email = fields.email;
-		userDao.select(selectfd,function(results){
-			console.log(results[0].PASSWORD);
+		console.log(fields.name);
+		userDao.select({name:fields.name},function(results){
 			if(results.length == 0){//用户名不存在                             
 				res.writeHead(200);                  
 				res.end("{result:'fault',desc:'0'}");
@@ -23,20 +21,21 @@ let iUser = {
 			}
 		});
 	},
-	registUser : function (fields,res){
-		let selectfd = {};
-		selectfd.email = fields.email;
+	registUser : function (fields,callback){
 		//做校验操作
-		userDao.select(selectfd,function(results){
+		userDao.select({name:fields.name},function(results){
 			if(results.length == 0){//用户名不存在    
-				userDao.insert(fields,function(results){
-					if(results.length != 0){//注册成功
-						res.writeHead(200);
-						res.end("{result:'success',desc:'1'}");
-					}
-				});
+				callback(true);
 			}else{
-				
+				callback(false);
+			}
+		});
+	},
+	setPassword : function (fields,res){
+		userDao.insert(fields,function(results){
+			if(results.length != 0){//注册成功
+				res.writeHead(200);
+				res.end("{result:'success',desc:'1'}");
 			}
 		});
 	}

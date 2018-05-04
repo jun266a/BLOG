@@ -5,7 +5,7 @@ $(function(){
         var Boolean = true;
         var jsonStr = paramToJson(Param);//吧键值对解析为json字符串
         var jsonObj = strToJson(jsonStr);//吧json字符串解析为json对象
-        if(jsonObj.password=='' || jsonObj.email == ''){
+        if(jsonObj.password=='' || jsonObj.name == ''){
 			Boolean = false;
 			return;
 		}
@@ -13,12 +13,12 @@ $(function(){
 			Boolean = false;
 			return;
 		}
-        console.log(jsonObj.confirm == jsonObj.password);
+        console.log(jsonObj);
 		if (Boolean) {
-			AJAX(Param,"/signupAction",function(json){
+			AJAX({name:jsonObj.name,password:jsonObj.password},"/signupAction",function(json){
 				if(json.desc === '1'){
-					$.get('signin.html');
-//	        		$(location).prop('href', '../../signin.html')
+//					$.get('signin.html');
+	        		$(location).prop('href', '../../signin.html')
 	        		console.log(json.desc === '1');
 	        	}
 			});
