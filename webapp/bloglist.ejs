@@ -72,31 +72,14 @@
 						      	</h4>
 						    </div>
 						    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-						      	<div class="list-group">
-								  	<a href="#" class="list-group-item">文章管理</a>
-								  	<a href="#" class="list-group-item">写博客</a>
-								  	<a href="#" class="list-group-item">草稿箱</a>
-								  	<a href="#" class="list-group-item">回收站</a>
-								</div>
+						      	<ul class="nav nav-pills nav-stacked">
+						      		<li role="presentation"><a href="#manage" role="tab" data-toggle="tab">文章管理</a></li>
+  									<li role="presentation"><a href="#edit" role="tab" data-toggle="tab">写博客</a></li>
+  									<li role="presentation"><a href="#drafts" role="tab" data-toggle="tab">草稿箱</a></li>
+  									<li role="presentation"><a href="#recycle" role="tab" data-toggle="tab">回收站</a></li>
+								</ul>
 						    </div>
   						</div>
-					  	<div class="panel panel-default">
-						    <div class="panel-heading" role="tab" id="headingTwo">
-						      	<h4 class="panel-title">
-						        	<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-						          		Collapsible Group Item #2
-						        	</a>
-						     	 </h4>
-						    </div>
-						    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-						      	<div class="list-group">
-						  			<a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-								  	<a href="#" class="list-group-item">Morbi leo risus</a>
-								  	<a href="#" class="list-group-item">Porta ac consectetur ac</a>
-								  	<a href="#" class="list-group-item">Vestibulum at eros</a>
-								</div>
-						    </div>
-					  	</div>
 					  	<div class="panel panel-default">
 						    <div class="panel-heading" role="tab" id="headingThree">
 						      	<h4 class="panel-title">
@@ -106,73 +89,97 @@
 						      	</h4>
 						    </div>
 						    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-						      	<div class="list-group">
-								  	<a href="#" class="list-group-item">个人中心</a>
-								  	<a href="#" class="list-group-item">账号安全</a>
-								</div>
+						      	<ul class="nav nav-pills nav-stacked">
+						      		<li role="presentation"><a href="#center" role="tab" data-toggle="tab">个人中心</a></li>
+  									<li role="presentation"><a href="#secure" role="tab" data-toggle="tab">账号安全</a></li>
+								</ul>
 						    </div>
 					  	</div>
 					</div>
 				</div>
+				
 				<div class="col-md-9">
-					<div class="row section">
-						<div class="page-header ">
-							<blockquote>文章管理</blockquote>
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active" id="manage">
+							<div class="row section">
+								<div class="page-header ">
+									<blockquote>文章管理</blockquote>
+								</div>
+								<ul class="nav nav-tabs " role="tablist">
+								  	<li role="presentation" class="active"><a href="#all" role="tab" data-toggle="tab">全部 <span class="badge">42</span></a></li>
+								  	<li role="presentation"><a href="#traval" role="tab" data-toggle="tab">旅游</a></li>
+								  	<li role="presentation"><a href="#" role="tab" data-toggle="tab">文化</a></li>
+								  	<li role="presentation"><a href="#" role="tab" data-toggle="tab">运动</a></li>
+								</ul>
+								<div class="tab-content">
+								    <div role="tabpanel" class="tab-pane active" id="all">
+								    	<div class="col-sm-6 col-md-4">
+										    <div class="thumbnail">
+										      	<div class="caption">
+											        <h3>Title</h3>
+											        <p>Nov 11</p>
+											        <p class="desc">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+											        <p>
+											        	<a href="#" class="btn btn-primary" role="button">查看</a> 
+											        	<a href="#" class="btn btn-danger" role="button">删除</a> 
+											        </p>
+										      	</div>
+										    </div>
+									  	</div>
+								    </div>
+								    <div role="tabpanel" class="tab-pane" id="traval">
+								    	<div class="col-sm-6 col-md-4">
+										    <div class="thumbnail">
+										      	<div class="caption">
+											        <h3>Featured post</h3>
+											        <p>Nov 11</p>
+											        <p class="desc">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+											        <p>
+											        	<a href="#" class="btn btn-primary" role="button">查看</a> 
+											        	<a href="#" class="btn btn-danger" role="button">删除</a> 
+											        </p>
+										      	</div>
+										    </div>
+									  	</div>
+								    </div>
+								</div>
+							</div>
+							<div class="row footer">
+								<nav aria-label="Page navigation">
+								  	<ul class="pager">
+									    <li>
+									      	<a href="#" aria-label="Previous">
+									        	<span aria-hidden="true">&laquo;</span>
+									      	</a>
+									    </li>
+									    <li><a href="#">1</a></li>
+									    <li><a href="#">2</a></li>
+									    <li><a href="#">3</a></li>
+									    <li><a href="#">4</a></li>
+									    <li><a href="#">5</a></li>
+									    <li>
+									      	<a href="#" aria-label="Next">
+									        	<span aria-hidden="true">&raquo;</span>
+									      	</a>
+									    </li>
+								  	</ul>
+								</nav>
+							</div>
 						</div>
-						<ul class="nav nav-tabs">
-						  	<li role="presentation" class="active"><a href="#">全部 <span class="badge">42</span></a></li>
-						  	<li role="presentation"><a href="#">旅游</a></li>
-						  	<li role="presentation"><a href="#">文化</a></li>
-						  	<li role="presentation"><a href="#">运动</a></li>
-						</ul>
-						<div class="row article">
-						  	<div class="col-sm-6 col-md-4">
-							    <div class="thumbnail">
-							      	<div class="caption">
-								        <h3>Title</h3>
-								        <p>Nov 11</p>
-								        <p class="desc">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-								        <p>
-								        	<a href="#" class="btn btn-primary" role="button">查看</a> 
-								        	<a href="#" class="btn btn-danger" role="button">删除</a> 
-								        </p>
-							      	</div>
-							    </div>
-						  	</div>
-						  	<div class="col-sm-6 col-md-4">
-							    <div class="thumbnail">
-							      	<div class="caption">
-								        <h3>Featured post</h3>
-								        <p>Nov 11</p>
-								        <p class="desc">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-								        <p>
-								        	<a href="#" class="btn btn-primary" role="button">查看</a> 
-								        	<a href="#" class="btn btn-danger" role="button">删除</a> 
-								        </p>
-							      	</div>
-							    </div>
-						  	</div>
+						<div role="tabpanel" class="tab-pane" id="edit">
+							
 						</div>
-						<div class="row footer">
-							<nav aria-label="Page navigation">
-							  	<ul class="pager ">
-								    <li>
-								      	<a href="#" aria-label="Previous">
-								        	<span aria-hidden="true">&laquo;</span>
-								      	</a>
-								    </li>
-								    <li><a href="#">1</a></li>
-								    <li><a href="#">2</a></li>
-								    <li><a href="#">3</a></li>
-								    <li><a href="#">4</a></li>
-								    <li><a href="#">5</a></li>
-								    <li>
-								      	<a href="#" aria-label="Next">
-								        	<span aria-hidden="true">&raquo;</span>
-								      	</a>
-								    </li>
-							  	</ul>
-							</nav>
+						<div role="tabpanel" class="tab-pane" id="drafts">
+							draftsRecycle
+						</div>
+						<div role="tabpanel" class="tab-pane" id="recycle">
+							draftsRecyclesecure
+						</div>
+						<div role="tabpanel" class="tab-pane" id="secure">
+							draftsRecyclesecurecenter
+						</div>
+						<div role="tabpanel" class="tab-pane" id="center">
+							draftsRecyclesecurecenter
 						</div>
 					</div>
 				</div>
