@@ -1,7 +1,6 @@
 'use strict';
 
 //1、引入模块 
-const http = require('http');
 //引入路径模块path
 const path = require('path');
 
@@ -19,6 +18,8 @@ const iBlog = require('./control/blogControl');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 
+app.set('view engine','ejs');
+app.set('views','./webapp');
 //静态webapp文件夹，方便请求webapp的所有文件
 app.use(express.static('webapp'));
 
@@ -26,6 +27,20 @@ app.get('/favicon.ico',function(req,res){
     let	pathname = path.join(__dirname,'/webapp/images/56.png');
     itools.loadFile(pathname,res);
 });
+
+app.get('/bloglist.html',function(req,res){
+	let datas = {};
+	iBlog.getCateByUID({UID : 31},res,function(results){
+		Object.assign(datas,{categorys:results});
+		iBlog.getIndex({UID : 31},res,function(results){
+			Object.assign(datas,{articles:results});
+			res.render('bloglist.ejs',datas);
+		});
+	});
+});
+
+
+
 app.post('/signinAction',function(req,res){
 	if(!req.body){
 		return res.sendStatus(400);
@@ -34,10 +49,15 @@ app.post('/signinAction',function(req,res){
 	}
 });
 app.post('/signupAction',function(req,res){
+	console.log(req.body);
 	if(!req.body){
 		return res.sendStatus(400);
 	}else{
-    	iUser.registUser(req.body,res);
+		iUser.registUser(req.body,function(stat){
+			if(stat){
+				iUser.setPassword(req.body,res);
+			}
+		});
 	}
 });
 app.post('/publishAction',function(req,res){
