@@ -18,13 +18,9 @@
         <!-- 导航-->
 		<div class="collapse navbar-collapse" id="navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-left">
-				<li class="text-center"><a href="JavaScript:void(0)">旅游</a></li>
-				<li class="text-center"><a href="JavaScript:void(0)">健康</a></li>
-				<li class="text-center"><a href="JavaScript:void(0)">科学</a></li>
-				<li class="text-center"><a href="JavaScript:void(0)">文化</a></li>
-				<li class="text-center"><a href="JavaScript:void(0)">技术</a></li>
-				<li class="text-center"><a href="JavaScript:void(0)">经济</a></li>
-				<li class="text-center"><a href="JavaScript:void(0)">运动</a></li>	
+				<%for(var i=0;i<AllCategorys.length;i++){%>
+					<li class="text-center"><a href="JavaScript:void(0)"><%=AllCategorys[i].name%></a></li>
+				<%}%>
 			</ul>
 			<form class="navbar-form navbar-right visible-lg">
 				<div class="form-group has-feedback">
