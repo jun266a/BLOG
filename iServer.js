@@ -14,6 +14,7 @@ const itools = require('./common/tools');
 const iUser = require('./control/userControl');
 const iBlog = require('./control/blogControl');
 
+
 //post参数注入
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
@@ -28,17 +29,31 @@ app.get('/favicon.ico',function(req,res){
     itools.loadFile(pathname,res);
 });
 
-app.get('/bloglist.html',function(req,res){
-	let datas = {};
-	iBlog.getCateByUID({UID : 31},res,function(results){
-		Object.assign(datas,{categorys:results});
-		iBlog.getIndex({UID : 31},res,function(results){
-			Object.assign(datas,{articles:results});
-			res.render('bloglist.ejs',datas);
-		});
-	});
+let datas = {};
+let AllCategorys = [];
+getAllCategory(function(results){
+	AllCategorys = results;
 });
 
+app.get('/bloglist.html',function(req,res){
+		iBlog.getUIDCategory({UID : 31},res,function(categorys){
+			iBlog.getArticles({UID : 31},res,function(articles){
+				datas = {categorys,articles,AllCategorys};
+//				console.log(datas);
+				res.render('bloglist.ejs',datas);
+			});
+		});
+});
+app.use('/saveAction',function(req,res){
+	iBlog.addNew(req.body,res);
+	console.log('req.body'+req.body);
+});
+
+function getAllCategory(callback){
+	iBlog.getAllCategory(function(AllCategorys){
+		callback(AllCategorys);
+	});	
+}
 
 
 app.post('/signinAction',function(req,res){

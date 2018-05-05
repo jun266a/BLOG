@@ -5,19 +5,47 @@ $(function(){
   		maxHeight : 500,
   		focus : true
   	});
-  	CLICK('#save',1,function(){
-  		
+  	$('ul.dropdown-menu li').on('click',function(event){
+  		var cateID = $(this).find('a').data('cate');
+  		var cateStr = $(this).find('a').text();
+  		$('#category').data("cate",cateID).text(cateStr);
   	});
-  	CLICK('#publish',2,function(){
+  	
+  	CLICK('#save',1,'/saveAction',function(json){
+  		if(json.desc == '0'){//失败处理
+  			
+  		}
+  	});
+  	CLICK('#publish',2,'/publishAction',function(json){
   		
   	});
 });
-function CLICK(id,stat,callback){
-	$(id).on('click',{stat:stat},function(){
-  		var markup = $('.summernote').summernote('code');
-  		AJAX(data,url,function(){
-  			
-  		});
-  		callback();
+function CLICK(id,statu,url,callback){
+	$(id).on('click',{statu:statu},function(){
+		var data = {
+			title : getTitle(),
+			cate_id : getCate(),
+			date : new Date(),
+			content : getContent(),
+			UID : getUID(),
+			statu : statu
+		}
+		console.log(data);
+		AJAX(data,url,function(json){
+			callback(json);
+		});
   	});
+}
+
+function getContent(){
+	return $('.summernote').summernote('code');
+}
+function getCate(){
+	return $('#category').data("cate");
+}
+function getTitle(){
+	return $('#title').val();
+}
+function getUID(){
+	return localStorage['UID'];
 }
