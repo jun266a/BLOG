@@ -21,6 +21,12 @@ let cateDao = {
 			callback(results);
 		});
 	},
+	selectAll : function(callback){
+		let selectSql = 'SELECT * FROM ' + db.TABLES.CATEGORY.NAME ;
+		db.query(selectSql,[],function(results){
+			callback(results);
+		});
+	},
 	replace : function(values,callback){
 		let replaceSql = 'REPLACE INTO ' + db.TABLES.CATEGORY.NAME +' SET ? ';
 		db.query(replaceSql,values,function(results){

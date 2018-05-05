@@ -1,12 +1,18 @@
 'use strict';
 
 const blogDao = require('../dao/blogDao');
+const cateDao = require('../dao/cateDao');
 const cateView = require('../dao/cateView');
 
 let iBlog = {
 	addNew : function(fields,res){
 		blogDao.insert(fields,function(results){
-			
+			if(results.length != 0){       
+				res.redirect('/bloglist.html');
+			}else{
+				res.writeHead(200);                  
+				res.end("{result:'fault',desc:'0'}");
+			}
 		});
 	},
 	getInfo : function(fields,res){
@@ -19,13 +25,18 @@ let iBlog = {
 			
 		});	
 	},
-	getIndex : function(fields,res,callback){
+	getArticles : function(fields,res,callback){
 		blogDao.select(fields,function(results){
 			callback(results);
 		});
 	},
-	getCateByUID : function(fields,res,callback){
+	getUIDCategory : function(fields,res,callback){
 		cateView.select(fields,function(results){
+			callback(results);
+		});
+	},
+	getAllCategory : function(callback){
+		cateDao.selectAll(function(results){
 			callback(results);
 		});
 	}
